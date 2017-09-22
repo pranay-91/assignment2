@@ -465,10 +465,7 @@ char *yytext;
 #include <stdio.h>
 #include <string.h>
 void yyerror(char *);
-
-/* #include "y.tab.h" */
-
-#line 472 "lex.yy.c"
+#line 469 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -650,14 +647,14 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
     
-#line 21 "prob3.l"
+#line 18 "prob3.l"
 
-    /*** Rules section ***/
+            /*** Rules section ***/
 
             /* yytext is a string containing the matched text. */
 
-    /* Strings are all lower case  */
-#line 661 "lex.yy.c"
+            /* Strings are all lower case  */
+#line 658 "lex.yy.c"
 
 	if ( !(yy_init) )
 		{
@@ -742,101 +739,80 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 27 "prob3.l"
+#line 24 "prob3.l"
 {
-            printf("Token: STRING;  Lexeme: %s\n", yytext);
-
-            /* yylval.str = strdup(yytext);
-            return  STRING; */
-
-        }
+                printf("Token: STRING;  Lexeme: %s\n", yytext);
+            }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 35 "prob3.l"
+#line 28 "prob3.l"
 {
-            printf("Token: DIGITS; Lexeme: %s\n", yytext);
-            /* return DIGITS; */
-        }
+                printf("Token: DIGITS; Lexeme: %s\n", yytext);
+            }
 	YY_BREAK
+/* VIGENERE */  
 case 3:
 YY_RULE_SETUP
-#line 41 "prob3.l"
+#line 33 "prob3.l"
 {
-            printf("Token: VIGENERE;  Lexeme: %s\n", yytext);
-
-            /* yylval.str = strdup(yytext);
-            return  VIGENERE;*/
-
-         }
+                printf("Token: VIGENERE;  Lexeme: %s\n", yytext);
+            }
 	YY_BREAK
+/* SIMPLESUB */
 case 4:
 YY_RULE_SETUP
-#line 49 "prob3.l"
+#line 38 "prob3.l"
 {
-            printf("Token: SIMPLESUB;  Lexeme: %s\n", yytext);
-
-            /* yylval.str = strdup(yytext);
-            return  SIMPLESUB; */
-
-        }
+                printf("Token: SIMPLESUB;  Lexeme: %s\n", yytext);
+            }
 	YY_BREAK
+/* LOCTRAN */
 case 5:
 YY_RULE_SETUP
-#line 57 "prob3.l"
+#line 43 "prob3.l"
 {
-            printf("Token: LOCTRAN;  Lexeme: %s\n", yytext);
-
-            /* yylval.str = strdup(yytext);
-            return  LOCTRAN; */
-
-         }
+                printf("Token: LOCTRAN;  Lexeme: %s\n", yytext);
+            }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 67 "prob3.l"
-{
-            printf("Token and Lexeme: %s\n", yytext);
-
-            /* return  *yytext; */
-
-        }
+#line 47 "prob3.l"
+{  
+                printf("Token and Lexeme: %s\n", yytext);
+            }
 	YY_BREAK
 case 7:
 /* rule 7 can match eol */
 YY_RULE_SETUP
-#line 74 "prob3.l"
+#line 51 "prob3.l"
 {
-            printf("Token and Lexeme: <newline>\n");
-
-            /* return  *yytext; */
-
-        }
+                printf("Token and Lexeme: <newline>\n");
+            }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 81 "prob3.l"
+#line 55 "prob3.l"
 {    }     /*  skip whitespace  */
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 83 "prob3.l"
+#line 57 "prob3.l"
 {
-           printf("Invalid character.\n");
+                printf("Invalid character.\n");
+                yyerror("invalid character");
 
-           yyerror("invalid character");
-
-        }
+            }
 	YY_BREAK
 /*  will match any single character that does not match
-         any of the above patterns
-     */
+            any of the above patterns
+            */
 case 10:
 YY_RULE_SETUP
-#line 94 "prob3.l"
+#line 65 "prob3.l"
 ECHO;
 	YY_BREAK
-#line 840 "lex.yy.c"
+#line 816 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1833,10 +1809,11 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 94 "prob3.l"
+#line 65 "prob3.l"
 
 
-    /*** C Code section ***/
+
+/*** C Code section ***/
 
 void yyerror(char *s) {
       fprintf(stderr, "line %d: yytext = %s.  Error msg: %s.\n", yylineno, yytext, s);
@@ -1846,7 +1823,6 @@ void yyerror(char *s) {
 int yywrap(void) {
    return 1;
 }
-
 
 /*  comment out the function  main()  if using  lex  with  yacc   */
 

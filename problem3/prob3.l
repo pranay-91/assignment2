@@ -12,87 +12,59 @@
 #include <stdio.h>
 #include <string.h>
 void yyerror(char *);
-
-/* #include "y.tab.h" */
-
 %}
 
 
 %%
-    /*** Rules section ***/
+            /*** Rules section ***/
 
             /* yytext is a string containing the matched text. */
 
-    /* Strings are all lower case  */
-[a-z]+  {
-            printf("Token: STRING;  Lexeme: %s\n", yytext);
+            /* Strings are all lower case  */
+[a-z]+      {
+                printf("Token: STRING;  Lexeme: %s\n", yytext);
+            }
 
-            /* yylval.str = strdup(yytext);
-            return  STRING; */
+[0-9]+      {
+                printf("Token: DIGITS; Lexeme: %s\n", yytext);
+            }
 
-        }
-
-[0-9]+  {
-            printf("Token: DIGITS; Lexeme: %s\n", yytext);
-            /* return DIGITS; */
-        }
-
-
-V[a-z]* {
-            printf("Token: VIGENERE;  Lexeme: %s\n", yytext);
-
-            /* yylval.str = strdup(yytext);
-            return  VIGENERE;*/
-
-         }
+            /* VIGENERE */  
+V[a-z]*     {
+                printf("Token: VIGENERE;  Lexeme: %s\n", yytext);
+            }
         
-[S][a-z]* {
-            printf("Token: SIMPLESUB;  Lexeme: %s\n", yytext);
+            /* SIMPLESUB */
+[S][a-z]*   {
+                printf("Token: SIMPLESUB;  Lexeme: %s\n", yytext);
+            }
 
-            /* yylval.str = strdup(yytext);
-            return  SIMPLESUB; */
-
-        }
-
-[L][a-z]* {
-            printf("Token: LOCTRAN;  Lexeme: %s\n", yytext);
-
-            /* yylval.str = strdup(yytext);
-            return  LOCTRAN; */
-
-         }
+            /* LOCTRAN */
+[L][a-z]*   {
+                printf("Token: LOCTRAN;  Lexeme: %s\n", yytext);
+            }
         
-        
+[(),+-]     {  
+                printf("Token and Lexeme: %s\n", yytext);
+            }
 
-[(),+-]   {
-            printf("Token and Lexeme: %s\n", yytext);
+\n          {
+                printf("Token and Lexeme: <newline>\n");
+            }
 
-            /* return  *yytext; */
+[ \t]       {    }     /*  skip whitespace  */
 
-        }
+.           {
+                printf("Invalid character.\n");
+                yyerror("invalid character");
 
-\n      {
-            printf("Token and Lexeme: <newline>\n");
-
-            /* return  *yytext; */
-
-        }
-
-[ \t]   {    }     /*  skip whitespace  */
-
-.       {
-           printf("Invalid character.\n");
-
-           yyerror("invalid character");
-
-        }
-     /*  will match any single character that does not match
-         any of the above patterns
-     */
-
-
+            }
+            /*  will match any single character that does not match
+            any of the above patterns
+            */
 %%
-    /*** C Code section ***/
+
+/*** C Code section ***/
 
 void yyerror(char *s) {
       fprintf(stderr, "line %d: yytext = %s.  Error msg: %s.\n", yylineno, yytext, s);
@@ -102,7 +74,6 @@ void yyerror(char *s) {
 int yywrap(void) {
    return 1;
 }
-
 
 /*  comment out the function  main()  if using  lex  with  yacc   */
 
