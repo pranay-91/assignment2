@@ -32,6 +32,7 @@ void yyerror(char *);
 
 [0-9]+      {
                 printf("Token: DIGITS; Lexeme: %s\n", yytext);
+                yylval.iValue = atoi(yytext);
                 return DIGITS; 
             }
 
