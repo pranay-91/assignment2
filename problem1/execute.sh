@@ -9,5 +9,8 @@ echo "->Generating Parser using via yacc using chain.y."
 yacc -d chain.y
 cc lex.yy.c y.tab.c -o prob1.out
 
-echo "->Parser generated: prob1.out. Executing"
-./prob1.out
+echo "->Parser generated."
+echo "->Executing prob1.out."
+echo "->Input: mala  # y #Reverse( mala)"
+echo "->Output:"
+echo "mala  # y #Reverse( mala)" | ./prob1.out
