@@ -790,14 +790,15 @@ YY_RULE_SETUP
                 printf("Token and Lexeme: <newline>\n");
             }
 	YY_BREAK
+/*  skip whitespace  */
 case 8:
 YY_RULE_SETUP
-#line 55 "prob3.l"
-{    }     /*  skip whitespace  */
+#line 56 "prob3.l"
+{    }     
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 57 "prob3.l"
+#line 58 "prob3.l"
 {
                 printf("Invalid character.\n");
                 yyerror("invalid character");
@@ -809,10 +810,10 @@ YY_RULE_SETUP
             */
 case 10:
 YY_RULE_SETUP
-#line 65 "prob3.l"
+#line 66 "prob3.l"
 ECHO;
 	YY_BREAK
-#line 816 "lex.yy.c"
+#line 817 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1809,7 +1810,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 65 "prob3.l"
+#line 66 "prob3.l"
 
 
 

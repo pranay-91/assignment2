@@ -11,6 +11,10 @@ cc lex.yy.c y.tab.c -o prob1.out
 
 echo "->Parser generated."
 echo "->Executing prob1.out."
-echo "->Input: mala  # y #Reverse( mala)"
+
+echo ""
+echo "->Test Spec 1"
+echo "->Input: "
+echo "mala  # y #Reverse( mala)"
 echo "->Output:"
 echo "mala  # y #Reverse( mala)" | ./prob1.out
