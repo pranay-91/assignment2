@@ -356,7 +356,7 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  11
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   34
+#define YYLAST   33
 
 /* YYNTOKENS -- Number of terminals.  */
 #define YYNTOKENS  14
@@ -378,10 +378,10 @@ union yyalloc
 static const yytype_uint8 yytranslate[] =
 {
        0,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-       8,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+      10,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-      11,    13,     2,     9,    12,    10,     2,     2,     2,     2,
+      11,    13,     2,     8,    12,     9,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
@@ -418,8 +418,8 @@ static const yytype_uint8 yyprhs[] =
 /* YYRHS -- A `-1'-separated list of the rules' RHS.  */
 static const yytype_int8 yyrhs[] =
 {
-      15,     0,    -1,    16,     8,    -1,    -1,     3,    -1,     4,
-      -1,    16,     9,    16,    -1,    16,    10,    16,    -1,     5,
+      15,     0,    -1,    16,    10,    -1,    -1,     3,    -1,     4,
+      -1,    16,     8,    16,    -1,    16,     9,    16,    -1,     5,
       11,    16,    12,     3,    13,    -1,     6,    11,    16,    12,
        3,    13,    -1,     7,    11,    16,    12,     4,    13,    -1
 };
@@ -438,7 +438,7 @@ static const yytype_uint8 yyrline[] =
 static const char *const yytname[] =
 {
   "$end", "error", "$undefined", "STRING", "DIGITS", "SIMPLESUB",
-  "VIGENERE", "LOCTRAN", "'\\n'", "'+'", "'-'", "'('", "','", "')'",
+  "VIGENERE", "LOCTRAN", "'+'", "'-'", "'\\n'", "'('", "','", "')'",
   "$accept", "start", "expr", 0
 };
 #endif
@@ -448,8 +448,8 @@ static const char *const yytname[] =
    token YYLEX-NUM.  */
 static const yytype_uint16 yytoknum[] =
 {
-       0,   256,   257,   258,   259,   260,   261,   262,    10,    43,
-      45,    40,    44,    41
+       0,   256,   257,   258,   259,   260,   261,   262,    43,    45,
+      10,    40,    44,    41
 };
 # endif
 
@@ -473,7 +473,7 @@ static const yytype_uint8 yyr2[] =
 static const yytype_uint8 yydefact[] =
 {
        3,     4,     5,     0,     0,     0,     0,     0,     0,     0,
-       0,     1,     2,     0,     0,     0,     0,     0,     6,     7,
+       0,     1,     0,     0,     2,     0,     0,     0,     6,     7,
        0,     0,     0,     0,     0,     0,     8,     9,    10
 };
 
@@ -488,9 +488,9 @@ static const yytype_int8 yydefgoto[] =
 #define YYPACT_NINF -9
 static const yytype_int8 yypact[] =
 {
-       4,    -9,    -9,    17,    18,    19,    14,    16,     4,     4,
-       4,    -9,    -9,     4,     4,     3,     7,    11,    -6,    -6,
-      15,    24,    27,     9,    20,    21,    -9,    -9,    -9
+       3,    -9,    -9,     0,    10,    17,    22,    16,     3,     3,
+       3,    -9,     3,     3,    -9,     4,     6,    11,    -9,    -9,
+      14,    24,    -1,    18,    19,    20,    -9,    -9,    -9
 };
 
 /* YYPGOTO[NTERM-NUM].  */
@@ -506,18 +506,18 @@ static const yytype_int8 yypgoto[] =
 #define YYTABLE_NINF -1
 static const yytype_uint8 yytable[] =
 {
-      15,    16,    17,    13,    14,    18,    19,     1,     2,     3,
-       4,     5,    13,    14,    11,    20,    13,    14,    23,    21,
-      13,    14,    26,    22,    12,    13,    14,    24,     8,     9,
-      10,    25,     0,    27,    28
+      15,    16,    17,    25,    18,    19,     1,     2,     3,     4,
+       5,     8,    12,    13,    12,    13,    20,    23,    21,    12,
+      13,     9,    11,    22,    12,    13,    14,    24,    10,     0,
+       0,    26,    27,    28
 };
 
 static const yytype_int8 yycheck[] =
 {
-       8,     9,    10,     9,    10,    13,    14,     3,     4,     5,
-       6,     7,     9,    10,     0,    12,     9,    10,     3,    12,
-       9,    10,    13,    12,     8,     9,    10,     3,    11,    11,
-      11,     4,    -1,    13,    13
+       8,     9,    10,     4,    12,    13,     3,     4,     5,     6,
+       7,    11,     8,     9,     8,     9,    12,     3,    12,     8,
+       9,    11,     0,    12,     8,     9,    10,     3,    11,    -1,
+      -1,    13,    13,    13
 };
 
 /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing

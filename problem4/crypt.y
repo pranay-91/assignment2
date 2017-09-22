@@ -36,7 +36,7 @@ int  total = 0;
 %token  <str>  LOCTRAN
 
 
-/* %left  '#' */
+%left  '+' '-'
 
 %type  <str>  start
 %type  <str>  expr
@@ -59,7 +59,7 @@ expr     :    STRING  {}
          |    VIGENERE '(' expr ',' STRING ')' { }
          |    LOCTRAN '(' expr ',' DIGITS ')' { }
          ;
-         
+
 %%      /*   programs   */
 
 
