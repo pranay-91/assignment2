@@ -52,7 +52,8 @@ V[a-z]*     {
                 printf("Token and Lexeme: <newline>\n");
             }
 
-[ \t]       {    }     /*  skip whitespace  */
+            /*  skip whitespace  */
+[ \t]       {    }     
 
 .           {
                 printf("Invalid character.\n");
