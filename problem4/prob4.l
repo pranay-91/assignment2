@@ -25,44 +25,44 @@ void yyerror(char *);
 
             /* Strings are all lower case  */
 [a-z]+      {
-                printf("Token: STRING;  Lexeme: %s\n", yytext);
+                /*printf("Token: STRING;  Lexeme: %s\n", yytext);*/
                 yylval.str = strdup(yytext);
                 return  STRING; 
             }
 
 [0-9]+      {
-                printf("Token: DIGITS; Lexeme: %s\n", yytext);
+                /*printf("Token: DIGITS; Lexeme: %s\n", yytext);*/
                 yylval.iValue = atoi(yytext);
                 return DIGITS; 
             }
 
 
 V[a-z]*     {
-                printf("Token: VIGENERE;  Lexeme: %s\n", yytext);
+                /*printf("Token: VIGENERE;  Lexeme: %s\n", yytext);*/
                 yylval.str = strdup(yytext);
                 return  VIGENERE;
             }
         
 [S][a-z]*   {
-                printf("Token: SIMPLESUB;  Lexeme: %s\n", yytext);
+                /*printf("Token: SIMPLESUB;  Lexeme: %s\n", yytext);*/
                 yylval.str = strdup(yytext);
                 return  SIMPLESUB; 
             }
 
 [L][a-z]*   {
-                printf("Token: LOCTRAN;  Lexeme: %s\n", yytext);
+                /*printf("Token: LOCTRAN;  Lexeme: %s\n", yytext);*/
                 yylval.str = strdup(yytext);
                 return  LOCTRAN;
             }
         
         
 [(),+-]     {
-                printf("Token and Lexeme: %s\n", yytext);
+                /*printf("Token and Lexeme: %s\n", yytext);*/
                 return  *yytext;
             }
 
 \n          {
-                printf("Token and Lexeme: <newline>\n");
+                /*printf("Token and Lexeme: <newline>\n");*/
                 return  *yytext; 
             }
 
