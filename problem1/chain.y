@@ -32,9 +32,10 @@ int  total = 0;
 %token  <str>  STRING
 %token  <str>  REVERSE
 
-%left  '#'
+/* %left  '#' */
 
 %type  <str>  start
+%type  <str>  exprs
 %type  <str>  expr
 %start  start
 
@@ -43,16 +44,17 @@ int  total = 0;
 %%       /*   rules section   */
 
 
-start    :    expr  '\n'        {  printf("%s\n", $1);   }
+start    :    exprs  '\n'        {  printf("%s\n", $1);   }
          |         /*  allow "empty" expression  */           {     }
          ;
 
-expr     :    STRING           {  $$ = $1;   }
-         |    expr '#' expr    {  $$ = strcat($1,$3);  }
-         |    REVERSE '(' STRING  ')'     {  $$ = reverse($3);  }
+exprs    :    expr    {  }
+         |    exprs '#' expr {  $$ = strcat($1,$3);  }
          ;
 
-
+expr     :    STRING           {  $$ = $1;   }
+         |    REVERSE '(' STRING  ')'     {  $$ = reverse($3);  }
+         ;
 %%      /*   programs   */
 
 
