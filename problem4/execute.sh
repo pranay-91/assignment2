@@ -3,7 +3,7 @@
 mydir=$(pwd)
 
 echo "->Generating Lexical Analyser via lex using prob4.l."
-flex prob3.l
+flex prob4.l
 
 echo "->Generating Parser using via yacc using crypt.y."
 yacc -d crypt.y
