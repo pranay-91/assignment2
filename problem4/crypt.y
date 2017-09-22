@@ -30,12 +30,15 @@ int  total = 0;
 };
 
 %token  <str>  STRING
-%token  <str>  REVERSE
+%token  <iValue>  DIGITS
+%token  <str>  SIMPLESUB
+%token  <str>  VIGENERE
+%token  <str>  LOCTRAN
+
 
 /* %left  '#' */
 
 %type  <str>  start
-%type  <str>  exprs
 %type  <str>  expr
 %start  start
 
@@ -44,17 +47,19 @@ int  total = 0;
 %%       /*   rules section   */
 
 
-start    :    exprs  '\n'        {  printf("%s\n", $1);   }
+start    :    expr  '\n'        {  printf("%s\n", $1);   }
          |         /*  allow "empty" expression  */           {     }
          ;
 
-exprs    :    expr    {  }
-         |    exprs '#' expr {  $$ = strcat($1,$3);  }
+expr     :    STRING  {}
+         |    DIGITS  {}
+         |    expr '+' expr   { }
+         |    expr '-' expr {  /*$$ = strcat($1,$3);  */}
+         |    SIMPLESUB '(' expr ',' STRING ')' { }
+         |    VIGENERE '(' expr ',' STRING ')' { }
+         |    LOCTRAN '(' expr ',' DIGITS ')' { }
          ;
-
-expr     :    STRING           {  $$ = $1;   }
-         |    REVERSE '(' STRING  ')'     {  $$ = reverse($3);  }
-         ;
+         
 %%      /*   programs   */
 
 
