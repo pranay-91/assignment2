@@ -31,9 +31,11 @@ int  total = 0;
 
 %token  <str>  STRING
 %token  <str>  REVERSE
+
+%left  '#'
+
 %type  <str>  start
 %type  <str>  expr
-
 %start  start
 
 
