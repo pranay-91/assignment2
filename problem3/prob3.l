@@ -13,7 +13,7 @@
 #include <string.h>
 void yyerror(char *);
 
-#include "y.tab.h"
+/* #include "y.tab.h" */
 
 %}
 
@@ -27,32 +27,54 @@ void yyerror(char *);
 [a-z]+  {
             printf("Token: STRING;  Lexeme: %s\n", yytext);
 
-            yylval.str = strdup(yytext);
-            return  STRING;
+            /* yylval.str = strdup(yytext);
+            return  STRING; */
 
         }
 
+[0-9]+  {
+            printf("Token: DIGITS; Lexeme: %s\n", yytext);
+            /* return DIGITS; */
+        }
 
-Reverse  {
-            printf("Token: REVERSE;  Lexeme: %s\n", yytext);
 
-            yylval.str = strdup(yytext);
-            return  REVERSE;
+V[a-z]* {
+            printf("Token: VIGENERE;  Lexeme: %s\n", yytext);
+
+            /* yylval.str = strdup(yytext);
+            return  VIGENERE;*/
 
          }
+        
+[S][a-z]* {
+            printf("Token: SIMPLESUB;  Lexeme: %s\n", yytext);
 
+            /* yylval.str = strdup(yytext);
+            return  SIMPLESUB; */
 
-[#()]   {
+        }
+
+[L][a-z]* {
+            printf("Token: LOCTRAN;  Lexeme: %s\n", yytext);
+
+            /* yylval.str = strdup(yytext);
+            return  LOCTRAN; */
+
+         }
+        
+        
+
+[(),+-]   {
             printf("Token and Lexeme: %s\n", yytext);
 
-            return  *yytext;
+            /* return  *yytext; */
 
         }
 
 \n      {
             printf("Token and Lexeme: <newline>\n");
 
-            return  *yytext;
+            /* return  *yytext; */
 
         }
 
@@ -83,9 +105,9 @@ int yywrap(void) {
 
 
 /*  comment out the function  main()  if using  lex  with  yacc   */
-/*
+
 int main(void) {
     yylex();
     return 0;
 }
-*/
+

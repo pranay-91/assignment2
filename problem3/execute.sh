@@ -3,14 +3,15 @@
 mydir=$(pwd)
 
 echo "->Generating Lexical Analyser via lex using prob1.l."
-flex prob1.l
+flex prob3.l
 
-echo "->Generating Parser using via yacc using chain.y."
-yacc -d chain.y
-cc lex.yy.c y.tab.c -o prob1.out
+cc lex.yy.c -o prob3.out
 
-echo "->Parser generated."
-echo "->Executing prob1.out."
-echo "->Input: mala  # y #Reverse( mala)"
+echo "->Executing prob3.out"
+echo "->Input: Loc(Sim(Vig(therewasmovementatthestation, banjo) ,thequickbrownfxjmpsvlazydg) ,10)"
 echo "->Output:"
-echo "mala  # y #Reverse( mala)" | ./prob1.out
+echo "Loc(Sim(Vig(therewasmovementatthestation, banjo) ,thequickbrownfxjmpsvlazydg) ,10)" | ./prob3.out
+
+echo "->Input: V(twentysix - eleven, eleven)"
+echo "->Output:"
+echo "V(twentysix - eleven, eleven)" | ./prob3.out
