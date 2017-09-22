@@ -51,10 +51,10 @@ start    :    expr  '\n'        {  printf("%s\n", $1);   }
          |         /*  allow "empty" expression  */           {     }
          ;
 
-expr     :    STRING  {}
-         |    DIGITS  {}
-         |    expr '+' expr   { }
-         |    expr '-' expr {  /*$$ = strcat($1,$3);  */}
+expr     :    STRING  { $$ = $1; }
+         |    DIGITS  { $$ = $1; }
+         |    expr '+' expr   { $$ = sum($1, $3); }
+         |    expr '-' expr {  $$ = diff($1,$3); }
          |    SIMPLESUB '(' expr ',' STRING ')' { }
          |    VIGENERE '(' expr ',' STRING ')' { }
          |    LOCTRAN '(' expr ',' DIGITS ')' { }

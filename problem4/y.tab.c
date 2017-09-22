@@ -1352,22 +1352,22 @@ yyreduce:
 
   case 4:
 #line 54 "crypt.y"
-    {}
+    { (yyval.str) = (yyvsp[(1) - (1)].str); }
     break;
 
   case 5:
 #line 55 "crypt.y"
-    {}
+    { (yyval.str) = (yyvsp[(1) - (1)].iValue); }
     break;
 
   case 6:
 #line 56 "crypt.y"
-    { }
+    { (yyval.str) = sum((yyvsp[(1) - (3)].str), (yyvsp[(3) - (3)].str)); }
     break;
 
   case 7:
 #line 57 "crypt.y"
-    {  /*$$ = strcat($1,$3);  */}
+    {  (yyval.str) = diff((yyvsp[(1) - (3)].str),(yyvsp[(3) - (3)].str)); }
     break;
 
   case 8:
