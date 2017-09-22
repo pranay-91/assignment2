@@ -1357,7 +1357,7 @@ yyreduce:
 
   case 5:
 #line 55 "crypt.y"
-    { (yyval.str) = (yyvsp[(1) - (1)].iValue); }
+    { (yyval.str) = (yyvsp[(1) - (1)].str); }
     break;
 
   case 6:
@@ -1367,22 +1367,22 @@ yyreduce:
 
   case 7:
 #line 57 "crypt.y"
-    {  (yyval.str) = diff((yyvsp[(1) - (3)].str),(yyvsp[(3) - (3)].str)); }
+    {  (yyval.str) = diff((yyvsp[(1) - (3)].str), (yyvsp[(3) - (3)].str)); }
     break;
 
   case 8:
 #line 58 "crypt.y"
-    { }
+    { (yyval.str) = simpleSub((yyvsp[(3) - (6)].str), (yyvsp[(5) - (6)].str)); }
     break;
 
   case 9:
 #line 59 "crypt.y"
-    { }
+    { (yyval.str) = vigenere((yyvsp[(3) - (6)].str), (yyvsp[(5) - (6)].str)); }
     break;
 
   case 10:
 #line 60 "crypt.y"
-    { }
+    { (yyval.str) = locTran((yyvsp[(3) - (6)].str), (yyvsp[(5) - (6)].str)); }
     break;
 
 

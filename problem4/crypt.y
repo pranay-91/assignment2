@@ -30,7 +30,7 @@ int  total = 0;
 };
 
 %token  <str>  STRING
-%token  <iValue>  DIGITS
+%token  <str>  DIGITS
 %token  <str>  SIMPLESUB
 %token  <str>  VIGENERE
 %token  <str>  LOCTRAN
@@ -54,10 +54,10 @@ start    :    expr  '\n'        {  printf("%s\n", $1);   }
 expr     :    STRING  { $$ = $1; }
          |    DIGITS  { $$ = $1; }
          |    expr '+' expr   { $$ = sum($1, $3); }
-         |    expr '-' expr {  $$ = diff($1,$3); }
-         |    SIMPLESUB '(' expr ',' STRING ')' { }
-         |    VIGENERE '(' expr ',' STRING ')' { }
-         |    LOCTRAN '(' expr ',' DIGITS ')' { }
+         |    expr '-' expr {  $$ = diff($1, $3); }
+         |    SIMPLESUB '(' expr ',' STRING ')' { $$ = simpleSub($3, $5); }
+         |    VIGENERE '(' expr ',' STRING ')' { $$ = vigenere($3, $5); }
+         |    LOCTRAN '(' expr ',' DIGITS ')' { $$ = locTran($3, $5); }
          ;
 
 %%      /*   programs   */

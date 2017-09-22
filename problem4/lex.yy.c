@@ -744,7 +744,7 @@ case 1:
 YY_RULE_SETUP
 #line 27 "prob4.l"
 {
-                printf("Token: STRING;  Lexeme: %s\n", yytext);
+                /*printf("Token: STRING;  Lexeme: %s\n", yytext);*/
                 yylval.str = strdup(yytext);
                 return  STRING; 
             }
@@ -753,8 +753,8 @@ case 2:
 YY_RULE_SETUP
 #line 33 "prob4.l"
 {
-                printf("Token: DIGITS; Lexeme: %s\n", yytext);
-                yylval.iValue = atoi(yytext);
+                /*printf("Token: DIGITS; Lexeme: %s\n", yytext);*/
+                yylval.str = strdup(yytext);
                 return DIGITS; 
             }
 	YY_BREAK
@@ -762,7 +762,7 @@ case 3:
 YY_RULE_SETUP
 #line 40 "prob4.l"
 {
-                printf("Token: VIGENERE;  Lexeme: %s\n", yytext);
+                /*printf("Token: VIGENERE;  Lexeme: %s\n", yytext);*/
                 yylval.str = strdup(yytext);
                 return  VIGENERE;
             }
@@ -771,7 +771,7 @@ case 4:
 YY_RULE_SETUP
 #line 46 "prob4.l"
 {
-                printf("Token: SIMPLESUB;  Lexeme: %s\n", yytext);
+                /*printf("Token: SIMPLESUB;  Lexeme: %s\n", yytext);*/
                 yylval.str = strdup(yytext);
                 return  SIMPLESUB; 
             }
@@ -780,7 +780,7 @@ case 5:
 YY_RULE_SETUP
 #line 52 "prob4.l"
 {
-                printf("Token: LOCTRAN;  Lexeme: %s\n", yytext);
+                /*printf("Token: LOCTRAN;  Lexeme: %s\n", yytext);*/
                 yylval.str = strdup(yytext);
                 return  LOCTRAN;
             }
@@ -789,7 +789,7 @@ case 6:
 YY_RULE_SETUP
 #line 59 "prob4.l"
 {
-                printf("Token and Lexeme: %s\n", yytext);
+                /*printf("Token and Lexeme: %s\n", yytext);*/
                 return  *yytext;
             }
 	YY_BREAK
@@ -798,7 +798,7 @@ case 7:
 YY_RULE_SETUP
 #line 64 "prob4.l"
 {
-                printf("Token and Lexeme: <newline>\n");
+                /*printf("Token and Lexeme: <newline>\n");*/
                 return  *yytext; 
             }
 	YY_BREAK
