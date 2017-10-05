@@ -11,6 +11,18 @@ E -> STRING			(r4)
 E -> REVERSE ( STRING )	        (r5)
 ```
 
+
+```
+            S                           S
+     _______|_______             _______|_______
+    |       |       |           |       |       |
+    E       #       E           E       #       E
+    |               |           |               |
+REVERSE(STRING)   STRING      STRING        REVERSE(STRING)
+```
+
+There are two parse trees derived from the same grammar. Therefore, this grammar is `ambiguous`.
+
 ```
 1	A # B # Reverse(C)	
 2	. A # B # Reverse(C)	shift
@@ -35,7 +47,7 @@ On `Step 7`, there is a conflict between whether to shift or reduce by applying 
 
 To solve `shift-reduce` confilct we would need to rewrite our grammar or define operator precedence to our yacc rules.
 
-The eqyuivalent grammar is as follows:
+The equivalent grammar is as follows:
 ```
 S -> E
 S -> EMPTY
