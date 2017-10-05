@@ -30,17 +30,17 @@ void yyerror(char *);
             }
 
             /* VIGENERE */  
-V[a-z]*     {
+V|Vi|Vig|Vige|Vigen|Vigene|Vigener|Vigenere {
                 printf("Token: VIGENERE;  Lexeme: %s\n", yytext);
             }
         
             /* SIMPLESUB */
-[S][a-z]*   {
+S|Si|Sim|Simp|Simple|SimpleS|SimpleSu|SimpleSub {
                 printf("Token: SIMPLESUB;  Lexeme: %s\n", yytext);
             }
 
             /* LOCTRAN */
-[L][a-z]*   {
+L|Lo|Loc|LocT|LocTr|LocTra|LocTran {
                 printf("Token: LOCTRAN;  Lexeme: %s\n", yytext);
             }
         
