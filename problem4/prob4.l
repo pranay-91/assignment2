@@ -36,20 +36,22 @@ void yyerror(char *);
                 return DIGITS; 
             }
 
-
-V[a-z]*     {
+            /* VIGENERE */
+V|Vi|Vig|Vige|Vigen|Vigene|Vigener|Vigenere   {
                 /*printf("Token: VIGENERE;  Lexeme: %s\n", yytext);*/
                 yylval.str = strdup(yytext);
                 return  VIGENERE;
             }
-        
-[S][a-z]*   {
+            
+            /* SIMPLESUB */
+S|Si|Sim|Simp|Simple|SimpleS|SimpleSu|SimpleSub   {
                 /*printf("Token: SIMPLESUB;  Lexeme: %s\n", yytext);*/
                 yylval.str = strdup(yytext);
                 return  SIMPLESUB; 
             }
 
-[L][a-z]*   {
+            /* LOCTRAN */
+L|Lo|Loc|LocT|LocTr|LocTra|LocTran   {
                 /*printf("Token: LOCTRAN;  Lexeme: %s\n", yytext);*/
                 yylval.str = strdup(yytext);
                 return  LOCTRAN;
