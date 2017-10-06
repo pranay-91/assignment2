@@ -1,7 +1,7 @@
 #Please modify the following two fields to contain your id number and your
 #surname. You can place spaces in your surname if you need to.
-ID = 12345
-SURNAME = MacGyver
+ID = 25906283
+SURNAME = Pradhananga
 
 #DO NOT MODIFY ANYTHING BEYOND THIS POINT: YOU RISK LOSING YOUR WORK!
 
